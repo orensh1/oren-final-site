@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 px-6 py-3 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#20bd5a] transition-colors shadow-lg shadow-green-900/20 whitespace-nowrap"
                   >
-                    <Send size={18} className="rotate-0 md:rotate-45" /> /* Visual fix for icon direction */
+                    <Send size={18} className="rotate-0 md:rotate-45" />
                     <span>שלח הודעה</span>
                   </a>
                 </div>
