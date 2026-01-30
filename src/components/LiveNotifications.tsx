@@ -25,7 +25,7 @@ const LiveNotifications: React.FC = () => {
             const newNotif = {
                 id: Date.now(),
                 data: notificationTypes[counter % notificationTypes.length],
-                xOffset: Math.random() * 300 - 150 // Wide spread (-150px to 150px)
+                xOffset: Math.random() * 100 - 50 // Tighter spread (-50px to 50px)
             };
             setNotifications(prev => [...prev.slice(-6), newNotif]); // More simultaneous items
             counter++;
