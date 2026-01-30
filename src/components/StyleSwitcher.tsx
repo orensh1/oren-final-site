@@ -95,7 +95,7 @@ const StyleSwitcher: React.FC = () => {
                 <div className="relative max-w-5xl mx-auto">
                     <motion.div
                         layout
-                        className="relative aspect-[16/10] bg-[#1d1d1f] rounded-[2rem] border-[1px] border-white/10 shadow-2xl overflow-hidden ring-1 ring-white/5 isolation-isolate transform-gpu"
+                        className="relative aspect-[16/10] bg-[#1d1d1f] rounded-[2rem] border-[1px] border-white/10 shadow-2xl overflow-hidden ring-1 ring-white/5 isolate transform-gpu"
                         style={{
                             boxShadow: '0 0 0 1px rgba(0,0,0,1), 0 30px 60px -12px rgba(0,0,0,0.5)',
                             WebkitMaskImage: '-webkit-radial-gradient(white, black)' // Force mask for Safari
