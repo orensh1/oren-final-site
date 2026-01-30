@@ -3,14 +3,18 @@ import { User, TrendingUp, Phone } from 'lucide-react';
 
 const SuccessStack: React.FC = () => {
     return (
-        <div className="absolute inset-0 z-0 pointer-events-none hidden md:flex items-center justify-center -translate-x-1/4 translate-y-20 opacity-60">
+        <div className="absolute inset-0 z-0 pointer-events-none hidden md:flex items-center justify-center -translate-x-1/4 translate-y-20 opacity-80">
             <div className="relative w-[300px] h-[400px]">
                 {/* Card 1: New Lead */}
                 <div
                     className="absolute left-0 bottom-0 animate-float-up"
                     style={{ animationDelay: '0s' }}
                 >
-                    <GlassCard icon={<User size={20} className="text-blue-400" />} text="New Lead Generated" />
+                    <GlassCard
+                        icon={<User size={20} className="text-blue-400" />}
+                        text="ליד חדש התקבל"
+                        color="blue"
+                    />
                 </div>
 
                 {/* Card 2: Traffic */}
@@ -18,7 +22,11 @@ const SuccessStack: React.FC = () => {
                     className="absolute left-10 bottom-24 animate-float-up"
                     style={{ animationDelay: '2.5s' }}
                 >
-                    <GlassCard icon={<TrendingUp size={20} className="text-green-400" />} text="+150% Traffic" />
+                    <GlassCard
+                        icon={<TrendingUp size={20} className="text-green-400" />}
+                        text="+150% תנועה לאתר"
+                        color="green"
+                    />
                 </div>
 
                 {/* Card 3: Call Scheduled */}
@@ -26,19 +34,27 @@ const SuccessStack: React.FC = () => {
                     className="absolute -left-8 bottom-48 animate-float-up"
                     style={{ animationDelay: '5s' }}
                 >
-                    <GlassCard icon={<Phone size={20} className="text-purple-400" />} text="Call Scheduled" />
+                    <GlassCard
+                        icon={<Phone size={20} className="text-purple-400" />}
+                        text="שיחה נקבעה"
+                        color="purple"
+                    />
                 </div>
             </div>
         </div>
     );
 };
 
-const GlassCard = ({ icon, text }: { icon: React.ReactNode, text: string }) => (
-    <div className="flex items-center gap-3 px-5 py-3 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-md shadow-2xl min-w-[220px]">
-        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
-            {icon}
+const GlassCard = ({ icon, text, color }: { icon: React.ReactNode, text: string, color: string }) => (
+    <div className={`flex flex-row-reverse items-center gap-4 px-6 py-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl min-w-[240px] group transition-all duration-500 hover:border-${color}-500/30 hover:shadow-${color}-500/20`}>
+        <div className={`w-10 h-10 rounded-full bg-${color}-500/10 flex items-center justify-center relative`}>
+            {/* Pulse effect */}
+            <div className={`absolute inset-0 rounded-full bg-${color}-400/20 animate-ping opacity-75`} />
+            <div className="relative z-10">
+                {icon}
+            </div>
         </div>
-        <span className="text-sm font-medium text-white/90">{text}</span>
+        <span className="text-base font-bold text-white tracking-wide" dir="rtl">{text}</span>
     </div>
 );
 
