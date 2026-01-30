@@ -69,18 +69,18 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className="block text-white relative z-10 mix-blend-overlay"
               >
-                חדשנות
+                לא עוד סתם
               </motion.div>
 
-              {/* Second Word - Ghost Gradient */}
+              {/* Second Word - Pink Purple Gradient */}
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="block relative z-0"
               >
-                <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white/80 to-purple-500/20 opacity-80">
-                  דיגיטלית
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 opacity-100">
+                  דף נחיתה
                 </span>
               </motion.div>
             </h1>
