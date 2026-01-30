@@ -100,9 +100,9 @@ const Hero: React.FC = () => {
             <h1 className="text-[3rem] md:text-[9rem] lg:text-[11rem] font-black leading-[1.2] md:leading-[0.8] tracking-[-0.07em] font-[Heebo] select-none">
               {/* First Word - Solid White */}
               <motion.div
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
                 className="block text-white relative z-10 mix-blend-overlay"
               >
                 לא עוד סתם
@@ -110,9 +110,9 @@ const Hero: React.FC = () => {
 
               {/* Second Word - Pink Purple Gradient */}
               <motion.div
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
                 className="block relative z-0"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 opacity-100">
@@ -127,9 +127,9 @@ const Hero: React.FC = () => {
 
             {/* Visual/Description on right (Hebrew start) */}
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="text-lg md:text-2xl text-[#E0E0E0] max-w-lg font-light leading-relaxed order-2 md:order-1 tracking-tight"
             >
               אני בונה חוויות דיגיטליות שמטשטשות את הגבול בין עיצוב לטכנולוגיה.
@@ -141,20 +141,9 @@ const Hero: React.FC = () => {
             <div className="order-1 md:order-2 self-start md:self-auto relative group w-full md:w-auto">
               <motion.a
                 href="#contact"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{
-                  opacity: 1,
-                  scale: [1, 1.05, 1]
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: "easeOut",
-                  scale: {
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }
-                }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 className="group relative inline-flex items-center justify-center gap-4 px-8 py-4 md:py-5 bg-white text-black rounded-full font-bold text-lg overflow-hidden tracking-tight transition-colors shadow-lg hover:shadow-xl w-full md:w-auto"
               >
                 <span className="relative z-10">רוצה אתר כזה?</span>
