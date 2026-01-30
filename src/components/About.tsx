@@ -9,7 +9,6 @@ const About: React.FC = () => {
   const x = useTransform(scrollYProgress, [0.3, 0.6], ["0%", "-10%"]);
 
   return (
-  return (
     <section id="about" className="py-20 md:py-32 relative overflow-hidden bg-black">
       {/* Continuous Marquee Text */}
       <motion.div
