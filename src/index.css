@@ -9,6 +9,19 @@
   }
 }
 
+/* Accessibility Utilities */
+html.grayscale {
+  filter: grayscale(100%);
+}
+
+html.high-contrast {
+  filter: contrast(150%);
+}
+
+html.large-text {
+  font-size: 120%;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

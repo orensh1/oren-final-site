@@ -20,9 +20,8 @@ const Navbar: React.FC = () => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'py-4' : 'py-8'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-4' : 'py-8'
+        }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -34,8 +33,7 @@ const Navbar: React.FC = () => {
         `}>
           {/* Logo */}
           <a href="#" className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
-            <span className="w-3 h-3 bg-pink-500 rounded-full animate-pulse" />
-            OREN.
+            OREN
           </a>
 
           {/* Desktop Links */}
@@ -62,7 +60,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="md:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
           >

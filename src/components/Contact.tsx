@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
 
           <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center text-xs text-zinc-500 order-2 md:order-1">
-              <p>© 2024 Oren Shamir. All rights reserved.</p>
+              <p>© 2026 Oren Shamir. All rights reserved.</p>
               <div className="flex gap-4">
                 <a href="#privacy" onClick={(e) => openModal(e, 'privacy')} className="hover:text-zinc-300 transition-colors">מדיניות פרטיות</a>
                 <span className="opacity-30">|</span>
