@@ -5,6 +5,7 @@ import Services from './components/Services';
 import About from './components/About';
 import Contact from './components/Contact';
 import FloatingCTA from './components/FloatingCTA';
+import TechGridOverlay from './components/ui/TechGridOverlay';
 
 const App: React.FC = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -20,6 +21,9 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-[#050505] min-h-screen text-white selection:bg-pink-500/30 selection:text-pink-200">
+
+      {/* Tech Grid Overlay */}
+      <TechGridOverlay />
 
       {/* Custom Cursor Glow */}
       <div
