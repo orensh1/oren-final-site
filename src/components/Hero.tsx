@@ -1,9 +1,16 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowUpRight, CheckCircle2, Bell, MessageCircle, ShoppingBag } from 'lucide-react';
 import SuccessStack from './ui/SuccessStack';
 import LiveNotifications from './LiveNotifications';
 
+
+const notificationTypes = [
+  { text: "ליד חדש התקבל!", icon: CheckCircle2, color: "text-green-400" },
+  { text: "שיחה נכנסת...", icon: Bell, color: "text-blue-400" },
+  { text: "פנייה חדשה", icon: MessageCircle, color: "text-purple-400" },
+  { text: "הזמנה חדשה", icon: ShoppingBag, color: "text-pink-400" }
+];
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -14,6 +21,17 @@ const Hero: React.FC = () => {
 
   const yText = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const opacityText = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  // Mobile Notification Cycle
+  const [mobileNotifIndex, setMobileNotifIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMobileNotifIndex((prev) => (prev + 1) % notificationTypes.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentMobileNotif = notificationTypes[mobileNotifIndex];
 
   return (
     <div
@@ -39,10 +57,33 @@ const Hero: React.FC = () => {
       {/* 2. Main Layout - Asymmetrical Editorial */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center pt-[120px] pb-16 md:py-24 min-h-[90vh]">
 
+        {/* Background Glow for Text Area */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[600px] max-h-[600px] bg-[radial-gradient(circle,rgba(100,50,255,0.15)_0%,rgba(0,0,0,0)_70%)] z-[-1] pointer-events-none md:hidden" />
+
         <motion.div
           style={{ y: yText, opacity: opacityText }}
           className="flex flex-col items-start w-full relative"
         >
+          {/* Mobile Top Notification - Static Center */}
+          <div className="md:hidden w-full flex justify-center mb-6 relative z-30 h-10">
+            <AnimatePresence mode="popLayout">
+              <motion.div
+                key={mobileNotifIndex}
+                initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 20, scale: 0.9 }}
+                className="flex items-center gap-3 px-4 py-2 bg-white/[0.08] backdrop-blur-md border border-white/10 rounded-full shadow-lg whitespace-nowrap absolute"
+              >
+                <div className={`p-1.5 rounded-full bg-white/5 ${currentMobileNotif.color}`}>
+                  <currentMobileNotif.icon size={14} />
+                </div>
+                <span className="text-white/90 text-sm font-medium tracking-wide">
+                  {currentMobileNotif.text}
+                </span>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
           {/* Top Tag - Minimalist */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -56,11 +97,6 @@ const Hero: React.FC = () => {
 
           {/* Headlines - Asymmetrical Alignment (Right Aligned in RTL) */}
           <div className="w-full text-right mb-16 md:mb-16 relative">
-            {/* Live Notifications - Mobile Left Side */}
-            <div className="absolute left-0 top-[130%] -translate-y-1/2 z-0 w-32 md:hidden">
-              <LiveNotifications />
-            </div>
-
             <h1 className="text-[3rem] md:text-[9rem] lg:text-[11rem] font-black leading-[1.2] md:leading-[0.8] tracking-[-0.07em] font-[Heebo] select-none">
               {/* First Word - Solid White */}
               <motion.div
@@ -94,7 +130,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="text-xl md:text-2xl text-white/60 max-w-lg font-light leading-relaxed order-2 md:order-1 tracking-tight"
+              className="text-lg md:text-2xl text-[#E0E0E0] max-w-lg font-light leading-relaxed order-2 md:order-1 tracking-tight"
             >
               אני בונה חוויות דיגיטליות שמטשטשות את הגבול בין עיצוב לטכנולוגיה.
               <br />
@@ -106,8 +142,19 @@ const Hero: React.FC = () => {
               <motion.a
                 href="#contact"
                 initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                animate={{
+                  opacity: 1,
+                  scale: [1, 1.05, 1]
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  scale: {
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }
+                }}
                 className="group relative inline-flex items-center justify-center gap-4 px-8 py-4 md:py-5 bg-white text-black rounded-full font-bold text-lg overflow-hidden tracking-tight transition-colors shadow-lg hover:shadow-xl w-full md:w-auto"
               >
                 <span className="relative z-10">רוצה אתר כזה?</span>
@@ -116,7 +163,10 @@ const Hero: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-200 to-pink-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.a>
             </div>
-
+            {/* Desktop Only Notifications */}
+            <div className="hidden md:block absolute left-[-50px] top-1/2">
+              <LiveNotifications />
+            </div>
           </div>
 
         </motion.div>
