@@ -56,13 +56,11 @@ const Hero: React.FC = () => {
             <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; 2024</span>
           </motion.div>
 
-          {/* Headlines - Clean Reset */}
-          <div className="w-full text-right mb-16 md:mb-16 relative z-50">
-            <h1 className="text-[3rem] md:text-[9rem] lg:text-[11rem] font-black leading-[1.2] md:leading-[0.8] tracking-[-0.07em] font-[Heebo] select-none">
-              <span className="block text-white relative z-10">
-                לא עוד סתם
-              </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 relative z-10">
+          {/* Headlines - Standardized Text */}
+          <div className="w-full text-right mb-8 relative z-20">
+            <h1 className="text-6xl md:text-8xl font-black leading-tight text-white">
+              לא עוד סתם
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 mt-2">
                 דף נחיתה
               </span>
             </h1>
