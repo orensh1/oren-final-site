@@ -77,12 +77,12 @@ const About: React.FC = () => {
 
             <div className="mt-10 flex gap-4">
               <div className="px-6 py-3 bg-zinc-900 rounded-xl border border-zinc-800 text-center">
-                <span className="block text-2xl font-bold text-white">4</span>
-                <span className="text-xs text-zinc-500">שנות ניסיון</span>
+                <span className="block text-2xl font-bold text-white">100%</span>
+                <span className="text-xs text-zinc-500">פוקוס על המרה</span>
               </div>
               <div className="px-6 py-3 bg-zinc-900 rounded-xl border border-zinc-800 text-center">
-                <span className="block text-2xl font-bold text-white">100%</span>
-                <span className="text-xs text-zinc-500">מחויבות</span>
+                <span className="block text-2xl font-bold text-white">ממוקד</span>
+                <span className="text-xs text-zinc-500">בתוצאות</span>
               </div>
             </div>
           </motion.div>
