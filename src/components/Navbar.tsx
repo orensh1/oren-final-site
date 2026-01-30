@@ -52,9 +52,9 @@ const Navbar: React.FC = () => {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <a href="#contact">
-              <Button variant="outline" className="!py-2 !px-4 text-sm">
-                בוא נדבר
+            <a href="https://wa.me/972526448826" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="!py-2 !px-4 text-sm flex items-center gap-2">
+                דברו איתי בוואטסאפ
               </Button>
             </a>
           </div>
@@ -88,8 +88,8 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            <a href="#contact" onClick={() => setIsOpen(false)}>
-              <Button className="w-full justify-center">בוא נדבר</Button>
+            <a href="https://wa.me/972526448826" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+              <Button className="w-full justify-center">דברו איתי בוואטסאפ</Button>
             </a>
           </div>
         </motion.div>
