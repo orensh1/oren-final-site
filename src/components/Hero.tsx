@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, ArrowUpRight, CheckCircle2, Bell, MessageCircle, ShoppingBag } from 'lucide-react';
 import SuccessStack from './ui/SuccessStack';
 import LiveNotifications from './LiveNotifications';
-
+import cardBg from '../assets/card-bg.jpg';
 
 const statusMessages = [
   "מערכת יצירת לידים פעילה",
@@ -51,17 +51,17 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-black/40 z-10" />
       </div>
 
-      {/* 2. Main Layout - Asymmetrical Editorial */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center pt-[120px] pb-16 md:py-24 min-h-[90vh]">
+      {/* 2. Main Layout - 2 Columns (Right: Text, Left: Mobile Hero Card) */}
+      <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-center justify-between gap-12 pt-[120px] pb-16 md:py-24 min-h-[90vh]">
 
         {/* Background Glow for Text Area */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[600px] max-h-[600px] bg-[radial-gradient(circle,rgba(100,50,255,0.15)_0%,rgba(0,0,0,0)_70%)] z-[-1] pointer-events-none md:hidden" />
 
+        {/* RIGHT COLUMN: Text Content */}
         <motion.div
           style={{ y: yText, opacity: opacityText }}
-          className="flex flex-col items-start w-full relative"
+          className="flex flex-col items-start w-full md:w-1/2 relative z-20"
         >
-
 
           {/* Top Tag - Minimalist */}
           <motion.div
@@ -129,13 +129,82 @@ const Hero: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-200 to-pink-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.a>
             </div>
-            {/* Desktop Only Notifications */}
-            <div className="hidden md:block absolute left-[-50px] top-1/2">
-              <LiveNotifications />
+          </div>
+          {/* Desktop Only Notifications */}
+          <div className="hidden md:block absolute left-[-50px] top-1/2">
+            <LiveNotifications />
+          </div>
+        </motion.div>
+
+        {/* LEFT COLUMN: Mobile Hero Card (User Design) */}
+        <div className="w-full md:w-1/2 flex justify-center md:justify-start z-20 mt-12 md:mt-0">
+          <div className="mobile-hero-container" style={{
+            position: 'relative',
+            width: '100%',
+            maxWidth: '450px',
+            height: '700px',
+            borderRadius: '30px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+            backgroundImage: `url(${cardBg})`,
+            backgroundSize: 'calc(100% * 1.05) auto',
+            backgroundPosition: 'center bottom',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            padding: '40px 30px',
+          }}>
+            {/* Top Glass Card */}
+            <div className="glass-float" style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '20px',
+              padding: '20px',
+              width: '160px',
+              alignSelf: 'flex-start',
+              marginTop: '20px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+              animation: 'float 4s ease-in-out infinite'
+            }}>
+              <div style={{ fontSize: '40px', marginBottom: '10px' }}>🚀</div>
+              <div style={{ color: 'white', fontWeight: 'bold', fontSize: '14px' }}>צמיחה עסקית</div>
+              <div style={{ height: '4px', width: '60%', background: '#00fa9a', borderRadius: '2px', marginTop: '8px' }}></div>
+            </div>
+
+            {/* Bottom Content */}
+            <div className="bottom-content" style={{ textAlign: 'right', direction: 'rtl', zIndex: '2' }}>
+              <h1 style={{ fontSize: '42px', lineHeight: '1', margin: '0 0 10px 0', color: 'white', fontWeight: '800' }}>
+                לא עוד סתם<br />דף נחיתה
+              </h1>
+
+              <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '16px', marginBottom: '25px' }}>
+                האתר שלכם צריך לעשות עבודה. בונה דפים שמביאים פניות.
+              </p>
+
+              <button style={{
+                width: '100%',
+                background: 'white',
+                color: 'black',
+                border: 'none',
+                padding: '18px',
+                borderRadius: '50px',
+                fontSize: '18px',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                boxShadow: '0 10px 20px rgba(0,40,0,0.2)'
+              }}>
+                רוצה אתר כזה?
+              </button>
+
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '20px' }}>
+                <div style={{ background: '#00fa9a', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>👋</div>
+                <div style={{ color: 'white', fontSize: '14px', fontWeight: '500' }}>דברו איתי בוואטסאפ</div>
+              </div>
             </div>
           </div>
+        </div>
 
-        </motion.div>
       </div>
 
       {/* 3. Glass Stats Cards - Bottom */}
