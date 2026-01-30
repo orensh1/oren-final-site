@@ -5,11 +5,10 @@ import SuccessStack from './ui/SuccessStack';
 import LiveNotifications from './LiveNotifications';
 
 
-const notificationTypes = [
-  { text: "ליד חדש התקבל!", icon: CheckCircle2, color: "text-green-400" },
-  { text: "שיחה נכנסת...", icon: Bell, color: "text-blue-400" },
-  { text: "פנייה חדשה", icon: MessageCircle, color: "text-purple-400" },
-  { text: "הזמנה חדשה", icon: ShoppingBag, color: "text-pink-400" }
+const statusMessages = [
+  "מערכת יצירת לידים פעילה",
+  "ליד חדש התקבל לפני 2 דק'",
+  "אורן זמין לפרויקטים חדשים"
 ];
 
 const Hero: React.FC = () => {
@@ -22,16 +21,14 @@ const Hero: React.FC = () => {
   const yText = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const opacityText = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  // Mobile Notification Cycle
-  const [mobileNotifIndex, setMobileNotifIndex] = useState(0);
+  // Status Line Cycle
+  const [statusIndex, setStatusIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
-      setMobileNotifIndex((prev) => (prev + 1) % notificationTypes.length);
+      setStatusIndex((prev) => (prev + 1) % statusMessages.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-
-  const currentMobileNotif = notificationTypes[mobileNotifIndex];
 
   return (
     <div
@@ -64,25 +61,7 @@ const Hero: React.FC = () => {
           style={{ y: yText, opacity: opacityText }}
           className="flex flex-col items-start w-full relative"
         >
-          {/* Mobile Top Notification - Static Center */}
-          <div className="md:hidden w-full flex justify-center mb-6 relative z-30 h-10">
-            <AnimatePresence mode="popLayout">
-              <motion.div
-                key={mobileNotifIndex}
-                initial={{ opacity: 0, y: -20, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 20, scale: 0.9 }}
-                className="flex items-center gap-3 px-4 py-2 bg-white/[0.08] backdrop-blur-md border border-white/10 rounded-full shadow-lg whitespace-nowrap absolute"
-              >
-                <div className={`p-1.5 rounded-full bg-white/5 ${currentMobileNotif.color}`}>
-                  <currentMobileNotif.icon size={14} />
-                </div>
-                <span className="text-white/90 text-sm font-medium tracking-wide">
-                  {currentMobileNotif.text}
-                </span>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+
 
           {/* Top Tag - Minimalist */}
           <motion.div
