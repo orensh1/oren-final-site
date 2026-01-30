@@ -13,7 +13,6 @@ const Navbar: React.FC = () => {
   });
 
   const links = [
-    { name: 'עבודות', href: '#work' },
     { name: 'שירותים', href: '#services' },
     { name: 'קצת עליי', href: '#about' },
   ];
