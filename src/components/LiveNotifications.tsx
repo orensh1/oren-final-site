@@ -25,37 +25,38 @@ const LiveNotifications: React.FC = () => {
             const newNotif = {
                 id: Date.now(),
                 data: notificationTypes[counter % notificationTypes.length],
-                xOffset: Math.random() * 20 - 10 // Smaller drift
+                xOffset: Math.random() * 300 - 150 // Wide spread (-150px to 150px)
             };
-            setNotifications(prev => [...prev.slice(-4), newNotif]);
+            setNotifications(prev => [...prev.slice(-6), newNotif]); // More simultaneous items
             counter++;
         };
 
         // Start immediately
         addNotification();
 
-        const interval = setInterval(addNotification, 3000); // Slightly slower pace
+        const interval = setInterval(addNotification, 2000); // Faster pace for "busier" look
 
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div className="absolute top-full mt-6 left-1/2 -translate-x-1/2 w-[300px] h-[200px] z-0 pointer-events-none overflow-visible">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 z-[-1] overflow-visible pointer-events-none">
             <AnimatePresence>
                 {notifications.map((item) => (
                     <motion.div
                         key={item.id}
-                        initial={{ opacity: 0, y: 20, x: item.xOffset, scale: 0.8 }}
+                        initial={{ opacity: 0, y: 60, x: item.xOffset, scale: 0.5 }}
                         animate={{
-                            opacity: [0, 1, 0],
-                            y: -100, // Float up shorter distance
-                            scale: 1
+                            opacity: [0, 0.8, 0],
+                            y: -400, // Float much higher up
+                            scale: [0.5, 1, 0.9]
                         }}
                         transition={{
-                            duration: 4, // Faster lifecycle
+                            duration: 7, // Slow ascent
                             ease: "easeOut"
                         }}
-                        className="absolute bottom-0 left-0 right-0 mx-auto w-fit flex items-center gap-3 px-4 py-2 bg-white/[0.05] backdrop-blur-md border border-white/10 rounded-full shadow-xl"
+                        className="absolute bottom-0 left-0 flex items-center gap-3 px-4 py-2 bg-white/[0.05] backdrop-blur-md border border-white/10 rounded-full shadow-xl whitespace-nowrap"
+                        style={{ x: "-50%" }} // Center the bubble on its offset
                         onAnimationComplete={() => {
                             setNotifications(prev => prev.filter(n => n.id !== item.id));
                         }}
@@ -63,7 +64,7 @@ const LiveNotifications: React.FC = () => {
                         <div className={`p-1.5 rounded-full bg-white/5 ${item.data.color}`}>
                             <item.data.icon size={14} />
                         </div>
-                        <span className="text-white/80 text-sm font-medium tracking-wide whitespace-nowrap">
+                        <span className="text-white/80 text-sm font-medium tracking-wide">
                             {item.data.text}
                         </span>
                     </motion.div>
