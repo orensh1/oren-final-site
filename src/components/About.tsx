@@ -1,5 +1,9 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import orenImage from '../assets/oren-portrait-new.jpg';
+import { Layout, Zap, Smartphone } from 'lucide-react';
+import orenImage from '../assets/oren-portrait-new.jpg';
+import { Code2, Zap, Layout, Smartphone } from 'lucide-react';
 
 const About: React.FC = () => {
   const { scrollYProgress } = useScroll();
@@ -31,9 +35,9 @@ const About: React.FC = () => {
             className="w-full md:w-1/2 relative"
           >
             <div className="aspect-square rounded-3xl overflow-hidden relative">
-              {/* Placeholder for Oren's image */}
+              {/* Oren's proper image */}
               <img
-                src="https://picsum.photos/800/800?grayscale"
+                src={orenImage}
                 alt="Oren Shamir"
                 className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
               />
@@ -81,14 +85,24 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="mt-10 flex gap-4">
-              <div className="px-6 py-3 bg-zinc-900 rounded-xl border border-zinc-800 text-center">
-                <span className="block text-2xl font-bold text-white">100%</span>
-                <span className="text-xs text-zinc-500">פוקוס על המרה</span>
+            <div className="mt-10 grid grid-cols-3 gap-4">
+              <div className="p-4 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center gap-3 text-center group hover:bg-white/5 transition-colors">
+                <div className="p-3 rounded-full bg-pink-500/10 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                  <Layout size={24} />
+                </div>
+                <span className="text-sm font-medium text-zinc-300">Pixel Perfect</span>
               </div>
-              <div className="px-6 py-3 bg-zinc-900 rounded-xl border border-zinc-800 text-center">
-                <span className="block text-2xl font-bold text-white">ממוקד</span>
-                <span className="text-xs text-zinc-500">בתוצאות</span>
+              <div className="p-4 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center gap-3 text-center group hover:bg-white/5 transition-colors">
+                <div className="p-3 rounded-full bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                  <Zap size={24} />
+                </div>
+                <span className="text-sm font-medium text-zinc-300">ביצועים מהירים</span>
+              </div>
+              <div className="p-4 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center gap-3 text-center group hover:bg-white/5 transition-colors">
+                <div className="p-3 rounded-full bg-purple-500/10 text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                  <Smartphone size={24} />
+                </div>
+                <span className="text-sm font-medium text-zinc-300">התאמה לנייד</span>
               </div>
             </div>
           </motion.div>
