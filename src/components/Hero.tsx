@@ -20,8 +20,6 @@ const Hero: React.FC = () => {
 
       {/* 1. Background Texture & Aurora */}
 
-      {/* Performance Optimized Noise Overlay */}
-      <div className="noise-overlay"></div>
 
       {/* Aurora Mesh Gradient - Darker, Moodier */}
       <div className="absolute inset-0 z-0 overflow-hidden">
