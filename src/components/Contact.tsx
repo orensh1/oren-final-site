@@ -5,7 +5,7 @@ import Button from './ui/Button';
 
 const Contact: React.FC = () => {
   return (
-    <footer id="contact" className="relative pt-32 pb-10 bg-black overflow-hidden">
+    <footer id="contact" className="relative pt-20 md:pt-32 pb-10 bg-black overflow-hidden">
       {/* Glow Effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-indigo-900/20 rounded-full blur-[120px]" />
 

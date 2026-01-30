@@ -121,12 +121,12 @@ const StyleSwitcher: React.FC = () => {
                                     />
 
                                     {/* Content */}
-                                    <div className="relative z-10 text-center space-y-6">
+                                    <div className="relative z-10 text-center space-y-4 md:space-y-6 px-4">
                                         <motion.h3
                                             initial={{ y: 20, opacity: 0 }}
                                             animate={{ y: 0, opacity: 1 }}
                                             transition={{ delay: 0.1 }}
-                                            className={`text-6xl md:text-8xl font-bold tracking-tighter ${styles[activeStyle].text}`}
+                                            className={`text-3xl md:text-6xl lg:text-8xl font-bold tracking-tighter ${styles[activeStyle].text}`}
                                         >
                                             {styles[activeStyle].previewTitle}
                                         </motion.h3>
@@ -134,7 +134,7 @@ const StyleSwitcher: React.FC = () => {
                                             initial={{ y: 20, opacity: 0 }}
                                             animate={{ y: 0, opacity: 1 }}
                                             transition={{ delay: 0.2 }}
-                                            className={`text-2xl font-medium tracking-wide opacity-80 ${styles[activeStyle].text}`}
+                                            className={`text-sm md:text-2xl font-medium tracking-wide opacity-80 ${styles[activeStyle].text}`}
                                         >
                                             {styles[activeStyle].previewSubtitle}
                                         </motion.p>
@@ -144,9 +144,9 @@ const StyleSwitcher: React.FC = () => {
                                             initial={{ y: 40, opacity: 0 }}
                                             animate={{ y: 0, opacity: 1 }}
                                             transition={{ delay: 0.3 }}
-                                            className="flex items-center gap-4 justify-center mt-8"
+                                            className="flex items-center gap-4 justify-center mt-6 md:mt-8"
                                         >
-                                            <div className={`h-14 px-8 rounded-2xl flex items-center bg-gradient-to-r ${styles[activeStyle].accent} shadow-lg text-white font-bold tracking-wide`}>
+                                            <div className={`h-10 md:h-14 px-6 md:px-8 rounded-xl md:rounded-2xl flex items-center bg-gradient-to-r ${styles[activeStyle].accent} shadow-lg text-white font-bold tracking-wide text-xs md:text-base`}>
                                                 להתחיל פרויקט
                                             </div>
                                         </motion.div>
