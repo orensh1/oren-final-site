@@ -8,9 +8,9 @@ const StyleSwitcher: React.FC = () => {
 
     const styles = {
         innovation: {
-            label: 'חדשנות',
-            previewTitle: 'Future Ready',
-            previewSubtitle: 'חוויה טכנולוגית סוחפת',
+            label: 'הייטק',
+            previewTitle: 'Brave & Tech',
+            previewSubtitle: 'עיצוב שמשדר קידמה וחדשנות. מתאים בול לסטארטאפים שרוצים להוביל.',
             bg: 'bg-[#000]',
             accent: 'from-cyan-500 to-blue-600',
             text: 'text-white',
@@ -19,8 +19,8 @@ const StyleSwitcher: React.FC = () => {
         },
         clean: {
             label: 'נקי',
-            previewTitle: 'Pure Essence',
-            previewSubtitle: 'מינימליזם מדויק ויוקרתי',
+            previewTitle: 'Clean & Simple',
+            previewSubtitle: 'לתת לתוכן לדבר. עיצוב מינימליסטי ואוורירי שנותן הרגשה של יוקרה ושקט.',
             bg: 'bg-[#F5F5F7]',
             accent: 'from-zinc-400 to-zinc-600',
             text: 'text-[#1D1D1F]',
@@ -28,9 +28,9 @@ const StyleSwitcher: React.FC = () => {
             orb: 'bg-zinc-400'
         },
         impact: {
-            label: 'אימפקט',
-            previewTitle: 'Bold Vision',
-            previewSubtitle: 'נוכחות שלא ניתן להתעלם ממנה',
+            label: 'נועז',
+            previewTitle: 'Bold & Loud',
+            previewSubtitle: 'לתפוס את העין מהרגע הראשון. צבעים חזקים ומסר חד שלא משאיר מקום לספק.',
             bg: 'bg-[#1a0505]',
             accent: 'from-orange-500 to-red-600',
             text: 'text-white',
@@ -40,7 +40,7 @@ const StyleSwitcher: React.FC = () => {
     };
 
     return (
-        <section className="py-32 bg-[#000] text-white relative overflow-hidden">
+        <section className="py-32 bg-[#080808] text-white relative overflow-hidden">
 
             {/* Ambient Lighting */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full pointer-events-none" />
@@ -55,7 +55,7 @@ const StyleSwitcher: React.FC = () => {
                         viewport={{ once: true }}
                         className="text-5xl md:text-7xl font-semibold tracking-tight"
                     >
-                        הסיפור שלך. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">בעיצוב הנכון.</span>
+                        איך המותג שלכם <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">מרגיש?</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ const StyleSwitcher: React.FC = () => {
                         transition={{ delay: 0.1 }}
                         className="text-2xl md:text-3xl text-zinc-400 font-medium max-w-2xl mx-auto leading-tight"
                     >
-                        בחר את האווירה שתהפוך גולשים ללקוחות.
+                        תבחרו את הסגנון שהכי נכון לכם, אני כבר אדאג שזה יראה מיליון דולר.
                     </motion.p>
                 </div>
 
