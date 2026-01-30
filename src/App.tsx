@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Services from './components/Services';
+import StyleSwitcher from './components/StyleSwitcher';
 import About from './components/About';
 import Contact from './components/Contact';
 import FloatingCTA from './components/FloatingCTA';
@@ -35,7 +35,7 @@ const App: React.FC = () => {
 
       <main className="relative z-10">
         <Hero />
-        <Services />
+        <StyleSwitcher />
         <About />
         <Contact />
       </main>
