@@ -25,7 +25,7 @@ const LiveNotifications: React.FC = () => {
             const newNotif = {
                 id: Date.now(),
                 data: notificationTypes[counter % notificationTypes.length],
-                xOffset: Math.random() * 800 - 400 // Wider spread (-400px to 400px)
+                xOffset: Math.random() * 700 - 100 // Shifted right (-100px to 600px)
             };
             setNotifications(prev => [...prev.slice(-6), newNotif]); // More simultaneous items
             counter++;
@@ -45,7 +45,7 @@ const LiveNotifications: React.FC = () => {
                 {notifications.map((item) => (
                     <motion.div
                         key={item.id}
-                        initial={{ opacity: 0, y: 60, x: item.xOffset, scale: 0.5 }}
+                        initial={{ opacity: 0, y: 200, x: item.xOffset, scale: 0.5 }}
                         animate={{
                             opacity: [0, 0.8, 0],
                             y: -400, // Float much higher up
