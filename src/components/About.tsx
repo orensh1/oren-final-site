@@ -85,23 +85,34 @@ const About: React.FC = () => {
             </div>
 
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-4 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center gap-3 text-center group hover:bg-white/5 transition-colors">
-                <div className="p-3 rounded-full bg-pink-500/10 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors">
-                  <Layout size={24} />
-                </div>
-                <span className="text-sm font-medium text-zinc-300">Pixel Perfect</span>
-              </div>
-              <div className="p-4 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center gap-3 text-center group hover:bg-white/5 transition-colors">
-                <div className="p-3 rounded-full bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                  <Zap size={24} />
-                </div>
-                <span className="text-sm font-medium text-zinc-300">ביצועים מהירים</span>
-              </div>
-              <div className="p-4 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center gap-3 text-center group hover:bg-white/5 transition-colors">
+              <div className="p-4 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center gap-2 text-center group hover:bg-white/5 transition-colors">
                 <div className="p-3 rounded-full bg-purple-500/10 text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors">
                   <Smartphone size={24} />
                 </div>
-                <span className="text-sm font-medium text-zinc-300">התאמה לנייד</span>
+                <h3 className="font-bold text-white">נראה טוב בנייד</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  רוב הלקוחות מגיעים מהטלפון אז אני דואג שהאתר יעבוד שם חלק ומהיר
+                </p>
+              </div>
+
+              <div className="p-4 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center gap-2 text-center group hover:bg-white/5 transition-colors">
+                <div className="p-3 rounded-full bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                  <Zap size={24} />
+                </div>
+                <h3 className="font-bold text-white">קוד נקי ומהיר</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  אני לא משתמש במערכות כבדות ומסובכות אלא בונה אתרים קלים ויעילים
+                </p>
+              </div>
+
+              <div className="p-4 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center gap-2 text-center group hover:bg-white/5 transition-colors">
+                <div className="p-3 rounded-full bg-pink-500/10 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                  <Layout size={24} />
+                </div>
+                <h3 className="font-bold text-white">מדברים איתי ישירות</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  בלי מנהלי תיקים ובלי להמתין לנציגים פשוט שולחים לי הודעה בוואטסאפ ומתקדמים
+                </p>
               </div>
             </div>
           </motion.div>
