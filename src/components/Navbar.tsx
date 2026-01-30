@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className={`
           relative flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-500
-          ${isScrolled ? 'bg-black/40 backdrop-blur-xl border border-white/10 shadow-lg' : 'bg-transparent'}
+          ${isScrolled ? 'bg-black/60 backdrop-blur-xl border border-white/10 shadow-lg' : 'bg-transparent'}
         `}>
           {/* Logo */}
           <a href="#" className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">

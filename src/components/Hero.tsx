@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* 2. Main Layout - Asymmetrical Editorial */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center py-16 md:py-24 min-h-[90vh]">
+      <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center pt-[120px] pb-16 md:py-24 min-h-[90vh]">
 
         <motion.div
           style={{ y: yText, opacity: opacityText }}
@@ -55,13 +55,13 @@ const Hero: React.FC = () => {
           </motion.div>
 
           {/* Headlines - Asymmetrical Alignment (Right Aligned in RTL) */}
-          <div className="w-full text-right mb-10 md:mb-16 relative">
+          <div className="w-full text-right mb-16 md:mb-16 relative">
             {/* Live Notifications - Mobile Left Side */}
             <div className="absolute left-0 top-[130%] -translate-y-1/2 z-0 w-32 md:hidden">
               <LiveNotifications />
             </div>
 
-            <h1 className="text-[13vw] md:text-[9rem] lg:text-[11rem] font-black leading-[0.8] tracking-[-0.07em] font-[Heebo] select-none">
+            <h1 className="text-[3rem] md:text-[9rem] lg:text-[11rem] font-black leading-[1.2] md:leading-[0.8] tracking-[-0.07em] font-[Heebo] select-none">
               {/* First Word - Solid White */}
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Subtext and CTA - Shifted Balance */}
-          <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-12 pl-0 md:pl-20 mt-8">
+          <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-12 pl-0 md:pl-20 mt-12 md:mt-8">
 
             {/* Visual/Description on right (Hebrew start) */}
             <motion.p
@@ -102,13 +102,13 @@ const Hero: React.FC = () => {
             </motion.p>
 
             {/* CTA Button - Center/Left (Hebrew end) */}
-            <div className="order-1 md:order-2 self-start md:self-auto relative group">
+            <div className="order-1 md:order-2 self-start md:self-auto relative group w-full md:w-auto">
               <motion.a
                 href="#contact"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="group relative inline-flex items-center gap-4 px-8 py-5 bg-white text-black rounded-full font-bold text-lg overflow-hidden tracking-tight transition-colors shadow-lg hover:shadow-xl"
+                className="group relative inline-flex items-center justify-center gap-4 px-8 py-4 md:py-5 bg-white text-black rounded-full font-bold text-lg overflow-hidden tracking-tight transition-colors shadow-lg hover:shadow-xl w-full md:w-auto"
               >
                 <span className="relative z-10">רוצה אתר כזה?</span>
                 <ArrowLeft className="relative z-10 w-5 h-5 transition-transform group-hover:-translate-x-1" />
