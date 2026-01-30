@@ -99,7 +99,7 @@ const Hero: React.FC = () => {
               inset: '-45px',
               backgroundImage: `url(${cardBg})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center', // Center focus
+              backgroundPosition: 'center',
               filter: 'brightness(0.9)',
               zIndex: 0
             }}></div>
@@ -119,41 +119,43 @@ const Hero: React.FC = () => {
                 </motion.span>
               </div>
 
-              {/* HIGH-END 3D FLOATING CARD (Corrected) */}
-              <div style={{
-                background: 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(15px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                borderRadius: '24px',
-                padding: '20px',
-                width: '180px',
-                marginTop: '10px',
-                animation: 'float 5s ease-in-out infinite',
+              {/* Growth Graphic Card - Tilted & Flat */}
+              <motion.div style={{
+                marginTop: '20px',
+                animation: 'float 6s ease-in-out infinite',
+                transform: 'rotate(-6deg)',
+                position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center'
+                alignItems: 'center'
               }}>
-                {/* 3D Kinetic Sculpture - Rotating */}
-                <motion.img
-                  src={conversionEngine}
-                  alt="Conversion Engine"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  style={{ width: '100px', height: '100px', objectFit: 'contain', marginBottom: '15px', filter: 'drop-shadow(0 0 15px rgba(100,50,255,0.5))' }}
+                {/* Main Graphic */}
+                <img
+                  src={growthGraphic}
+                  alt="Growth Chart"
+                  style={{
+                    width: '240px',
+                    height: 'auto',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.25))'
+                  }}
                 />
 
-                {/* New Text - Modern Bold White */}
+                {/* Label */}
                 <div style={{
-                  color: 'white',
-                  fontWeight: '800',
-                  fontSize: '18px',
-                  letterSpacing: '0.05em',
-                  textShadow: '0 2px 10px rgba(0,0,0,0.5)'
+                  marginTop: '-20px', // Overlap slightly
+                  background: 'white',
+                  color: 'black',
+                  padding: '10px 20px',
+                  borderRadius: '50px',
+                  fontWeight: '900',
+                  fontSize: '14px',
+                  boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+                  zIndex: 10
                 }}>
-                  מנוע המרות
+                  צמיחה והמרות
                 </div>
-              </div>
+              </motion.div>
 
               {/* Bottom Content Area */}
               <div style={{ textAlign: 'right', direction: 'rtl', color: 'white', marginTop: 'auto' }}>
