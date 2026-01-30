@@ -108,9 +108,16 @@ const Hero: React.FC = () => {
             {/* Content Overlay */}
             <div style={{ position: 'relative', zIndex: 10, height: '100%', padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
 
-              {/* Top Tag */}
-              <div style={{ alignSelf: 'flex-end', background: '#222', color: '#fff', padding: '6px 14px', borderRadius: '20px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                התחילו היום <span style={{ color: '#ffd700' }}>●</span>
+              {/* Top Tag - Bigger & Pulsing */}
+              <div style={{ alignSelf: 'flex-end', background: '#222', color: '#fff', padding: '10px 24px', borderRadius: '30px', fontSize: '15px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                התחילו היום
+                <motion.span
+                  animate={{ opacity: [1, 0.5, 1], scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  style={{ color: '#ffd700', fontSize: '12px', display: 'inline-block' }}
+                >
+                  ●
+                </motion.span>
               </div>
 
               {/* Floating Glass Component */}
