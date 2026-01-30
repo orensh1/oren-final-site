@@ -1,58 +1,68 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, Bell } from 'lucide-react';
+import { CheckCircle2, Bell, MessageCircle, ShoppingBag } from 'lucide-react';
 
-const notifications = [
+const notificationTypes = [
     { text: "ליד חדש התקבל!", icon: CheckCircle2, color: "text-green-400" },
-    { text: "שיחה נכנסת מלקוח...", icon: Bell, color: "text-blue-400" },
-    { text: "פנייה חדשה מהאתר", icon: CheckCircle2, color: "text-purple-400" },
-    { text: "הזמנה חדשה נוצרה", icon: CheckCircle2, color: "text-pink-400" }
+    { text: "שיחה נכנסת...", icon: Bell, color: "text-blue-400" },
+    { text: "פנייה חדשה", icon: MessageCircle, color: "text-purple-400" },
+    { text: "הזמנה חדשה", icon: ShoppingBag, color: "text-pink-400" }
 ];
 
+interface ActiveNotification {
+    id: number;
+    data: typeof notificationTypes[0];
+    xOffset: number;
+}
+
 const LiveNotifications: React.FC = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isVisible, setIsVisible] = useState(true);
+    const [notifications, setNotifications] = useState<ActiveNotification[]>([]);
 
     useEffect(() => {
+        let counter = 0;
         const interval = setInterval(() => {
-            setIsVisible(false);
-            setTimeout(() => {
-                setCurrentIndex((prev) => (prev + 1) % notifications.length);
-                setIsVisible(true);
-            }, 1000); // Wait for exit animation
-        }, 4000); // Total cycle time
+            const newNotif = {
+                id: Date.now(),
+                data: notificationTypes[counter % notificationTypes.length],
+                xOffset: Math.random() * 40 - 20 // Random X drift
+            };
+
+            setNotifications(prev => [...prev.slice(-4), newNotif]); // Keep max 5 items
+            counter++;
+        }, 2500); // Add new one every 2.5s
 
         return () => clearInterval(interval);
     }, []);
 
-    const CurrentIcon = notifications[currentIndex].icon;
-
     return (
-        <div className="absolute top-1/3 left-4 md:left-20 z-0 pointer-events-none">
-            <AnimatePresence mode="wait">
-                {isVisible && (
+        <div className="absolute bottom-0 left-4 md:left-20 w-[300px] h-[60vh] z-0 pointer-events-none overflow-hidden">
+            <AnimatePresence>
+                {notifications.map((item) => (
                     <motion.div
-                        key={currentIndex}
-                        initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -50, scale: 0.95 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="flex items-center gap-4 px-5 py-3 bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-purple-900/20"
+                        key={item.id}
+                        initial={{ opacity: 0, y: 100, x: item.xOffset, scale: 0.8 }}
+                        animate={{
+                            opacity: [0, 0.7, 0], // Fade in then out 
+                            y: -400, // Float up significantly
+                            scale: 1
+                        }}
+                        transition={{
+                            duration: 10, // Slow float
+                            ease: "easeOut"
+                        }}
+                        className="absolute bottom-0 left-0 flex items-center gap-3 px-4 py-2 bg-white/[0.02] backdrop-blur-sm border border-white/5 rounded-full"
+                        onAnimationComplete={() => {
+                            setNotifications(prev => prev.filter(n => n.id !== item.id));
+                        }}
                     >
-                        <div className={`p-2 rounded-full bg-white/5 border border-white/5 ${notifications[currentIndex].color}`}>
-                            <CurrentIcon size={20} />
+                        <div className={`p-1.5 rounded-full bg-white/5 ${item.data.color}`}>
+                            <item.data.icon size={14} />
                         </div>
-                        <div className="flex flex-col">
-                            <span className="text-white font-medium text-sm md:text-base tracking-wide">
-                                {notifications[currentIndex].text}
-                            </span>
-                            <span className="text-xs text-white/40">לפני רגע</span>
-                        </div>
-
-                        {/* Glow Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent rounded-2xl pointer-events-none" />
+                        <span className="text-white/60 text-sm font-medium tracking-wide whitespace-nowrap">
+                            {item.data.text}
+                        </span>
                     </motion.div>
-                )}
+                ))}
             </AnimatePresence>
         </div>
     );
