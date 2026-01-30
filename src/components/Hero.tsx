@@ -27,9 +27,10 @@ const Hero: React.FC = () => {
 
       {/* Aurora Mesh Gradient - Darker, Moodier */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
-        {/* Static gradient background - High Performance */}
-        <div className="absolute top-[-20%] right-[-10%] w-[80vw] h-[80vw] rounded-full bg-purple-900/40 blur-[80px]" />
-        <div className="absolute bottom-[-20%] left-[-10%] w-[80vw] h-[80vw] rounded-full bg-pink-900/30 blur-[80px]" />
+        {/* Animated CSS Gradients - High Performance */}
+        <div className="absolute top-[-20%] right-[-10%] w-[80vw] h-[80vw] rounded-full bg-purple-900/30 blur-[100px] animate-blob" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[80vw] h-[80vw] rounded-full bg-pink-900/20 blur-[100px] animate-blob animation-delay-2000" />
+        <div className="absolute top-[20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-blue-900/20 blur-[100px] animate-blob animation-delay-4000 hidden md:block" />
         <div className="absolute inset-0 bg-black/50 z-10" />
       </div>
 
@@ -117,9 +118,9 @@ const Hero: React.FC = () => {
       {/* 3. Glass Stats Cards - Bottom */}
       <div className="relative z-20 px-6 pb-12">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          <StatCard number="200%" label="שיפור בהמרה" />
-          <StatCard number="16" label="שנות חיים" />
-          <StatCard number="50+" label="פרויקטים מוצלחים" />
+          <StatCard number="200%" label="שיפור בהמרה" delay={0} />
+          <StatCard number="16" label="שנות חיים" delay={0.1} />
+          <StatCard number="50+" label="פרויקטים מוצלחים" delay={0.2} />
         </div>
       </div>
 
@@ -127,11 +128,11 @@ const Hero: React.FC = () => {
   );
 };
 
-const StatCard = ({ number, label }: { number: string, label: string }) => (
+const StatCard = ({ number, label, delay }: { number: string, label: string, delay: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.4, ease: "easeOut" }}
+    transition={{ delay, duration: 0.5, ease: "easeOut" }}
     className="relative group overflow-hidden rounded-xl border border-white/20 bg-white/[0.03] backdrop-blur-md p-6 hover:bg-white/[0.08] transition-all duration-500 will-change-transform transform-gpu"
   >
     <div className="flex items-end justify-between relative z-10">
