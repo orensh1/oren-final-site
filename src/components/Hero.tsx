@@ -56,34 +56,19 @@ const Hero: React.FC = () => {
             <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; 2024</span>
           </motion.div>
 
-          {/* Headlines */}
+          {/* Headlines - Clean Reset */}
           <div className="w-full text-right mb-16 md:mb-16 relative z-50">
             <h1 className="text-[3rem] md:text-[9rem] lg:text-[11rem] font-black leading-[1.2] md:leading-[0.8] tracking-[-0.07em] font-[Heebo] select-none">
-              {/* First Word - Solid White (No Overlay) */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="block text-white relative z-10"
-              >
+              <span className="block text-white relative z-10">
                 לא עוד סתם
-              </motion.div>
-
-              {/* Second Word */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                className="block relative z-0"
-              >
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 opacity-100">
-                  דף נחיתה
-                </span>
-              </motion.div>
+              </span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 relative z-10">
+                דף נחיתה
+              </span>
             </h1>
           </div>
 
-          {/* Subtext - Restored mt-12 */}
+          {/* Subtext */}
           <div className="w-full flex flex-col items-start md:items-start pl-0 md:pl-20 mt-12 md:mt-8">
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -97,7 +82,7 @@ const Hero: React.FC = () => {
 
         </motion.div>
 
-        {/* LEFT COLUMN: Mobile Hero Card (Fixing White Corners) */}
+        {/* LEFT COLUMN: Mobile Hero Card */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-start z-20 mt-12 md:mt-0">
           <div className="phone-mockup" style={{
             position: 'relative',
@@ -109,10 +94,10 @@ const Hero: React.FC = () => {
             margin: '0 auto 0 0',
             backgroundColor: '#050505',
           }}>
-            {/* Background Image - Zoomed */}
+            {/* Background Image - Aggressive Zoom/Crop */}
             <div style={{
               position: 'absolute',
-              inset: '-25px', // Aggressive Zoom to Crop White/Logo
+              inset: '-45px', // Increased from -25px to -45px for maximum crop
               backgroundImage: `url(${cardBg})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
