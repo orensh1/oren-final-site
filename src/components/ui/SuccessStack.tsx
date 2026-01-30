@@ -46,10 +46,8 @@ const SuccessStack: React.FC = () => {
 };
 
 const GlassCard = ({ icon, text, color }: { icon: React.ReactNode, text: string, color: string }) => (
-    <div className={`flex flex-row-reverse items-center gap-4 px-6 py-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl shadow-2xl min-w-[240px] group transition-all duration-500 hover:border-${color}-500/30 hover:shadow-${color}-500/20`}>
+    <div className={`flex flex-row-reverse items-center gap-4 px-6 py-4 rounded-2xl border border-white/10 bg-[#0A0A0A]/80 backdrop-blur-sm shadow-lg min-w-[240px] group transition-colors duration-300 hover:border-${color}-500/30`}>
         <div className={`w-10 h-10 rounded-full bg-${color}-500/10 flex items-center justify-center relative`}>
-            {/* Pulse effect */}
-            <div className={`absolute inset-0 rounded-full bg-${color}-400/20 animate-ping opacity-75`} />
             <div className="relative z-10">
                 {icon}
             </div>

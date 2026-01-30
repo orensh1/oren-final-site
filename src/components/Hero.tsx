@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
             y: [0, -50, 0]
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-10%] right-[-10%] w-[80vw] h-[80vw] rounded-full bg-[#2E1065] blur-[100px] mix-blend-screen opacity-60 will-change-transform"
+          className="absolute top-[-10%] right-[-10%] w-[80vw] h-[80vw] rounded-full bg-[#2E1065] blur-[100px] mix-blend-screen opacity-60"
         />
         <motion.div
           animate={{
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
             x: [0, -30, 0]
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-10%] left-[10%] w-[60vw] h-[60vw] rounded-full bg-[#BE185D] blur-[120px] mix-blend-screen opacity-50 hidden md:block will-change-transform"
+          className="absolute bottom-[-10%] left-[10%] w-[60vw] h-[60vw] rounded-full bg-[#BE185D] blur-[120px] mix-blend-screen opacity-50 hidden md:block"
         />
         <motion.div
           animate={{
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
             opacity: [0.2, 0.4, 0.2]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[30%] left-[30%] w-[40vw] h-[40vw] rounded-full bg-violet-600 blur-[80px] opacity-20 mix-blend-screen hidden md:block will-change-transform"
+          className="absolute top-[30%] left-[30%] w-[40vw] h-[40vw] rounded-full bg-violet-600 blur-[80px] opacity-20 mix-blend-screen hidden md:block"
         />
       </div>
 
