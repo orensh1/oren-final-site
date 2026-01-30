@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-indigo-900/20 rounded-full blur-[120px]" />
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row gap-20">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
 
             {/* Text Area */}
             <motion.div
@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               className="lg:w-1/2"
             >
-              <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+              <h2 className="text-4xl md:text-7xl font-bold mb-6 tracking-tight">
                 בוא ניצור <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-500">
                   משהו מדהים.

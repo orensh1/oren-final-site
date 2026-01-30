@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* 2. Main Layout - Asymmetrical Editorial */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center py-24 min-h-[90vh]">
+      <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center py-16 md:py-24 min-h-[90vh]">
 
         <motion.div
           style={{ y: yText, opacity: opacityText }}
@@ -44,15 +44,15 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-12 flex items-center gap-4 self-start md:self-auto"
+            className="mb-8 md:mb-12 flex items-center gap-4 self-start md:self-auto"
           >
-            <div className="h-[1px] w-12 bg-white/30"></div>
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; 2024</span>
+            <div className="h-[1px] w-8 md:w-12 bg-white/30"></div>
+            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; 2024</span>
           </motion.div>
 
           {/* Headlines - Asymmetrical Alignment (Right Aligned in RTL) */}
-          <div className="w-full text-right mb-16 relative">
-            <h1 className="text-[14vw] md:text-[9rem] lg:text-[11rem] font-black leading-[0.8] tracking-[-0.07em] font-[Heebo] select-none">
+          <div className="w-full text-right mb-10 md:mb-16 relative">
+            <h1 className="text-[13vw] md:text-[9rem] lg:text-[11rem] font-black leading-[0.8] tracking-[-0.07em] font-[Heebo] select-none">
               {/* First Word - Solid White */}
               <motion.div
                 initial={{ opacity: 0, y: 50 }}

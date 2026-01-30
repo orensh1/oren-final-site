@@ -10,7 +10,8 @@ const About: React.FC = () => {
   const x = useTransform(scrollYProgress, [0.3, 0.6], ["0%", "-10%"]);
 
   return (
-    <section id="about" className="py-32 relative overflow-hidden bg-black">
+  return (
+    <section id="about" className="py-20 md:py-32 relative overflow-hidden bg-black">
       {/* Continuous Marquee Text */}
       <motion.div
         animate={{ x: ["0%", "-50%"] }}
@@ -26,7 +27,7 @@ const About: React.FC = () => {
       </motion.div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-16">
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
 
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -85,7 +86,7 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-4">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-4 bg-zinc-900/50 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center gap-3 text-center group hover:bg-white/5 transition-colors">
                 <div className="p-3 rounded-full bg-pink-500/10 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors">
                   <Layout size={24} />

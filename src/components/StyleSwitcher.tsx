@@ -40,7 +40,7 @@ const StyleSwitcher: React.FC = () => {
     };
 
     return (
-        <section className="py-32 bg-[#080808] text-white relative overflow-hidden">
+        <section className="py-20 md:py-32 bg-[#080808] text-white relative overflow-hidden">
 
             {/* Ambient Lighting */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full pointer-events-none" />
@@ -48,12 +48,12 @@ const StyleSwitcher: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
 
                 {/* Headlines - Apple Style */}
-                <div className="text-center mb-16 space-y-4">
+                <div className="text-center mb-12 md:mb-16 space-y-4">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-5xl md:text-7xl font-semibold tracking-tight"
+                        className="text-4xl md:text-7xl font-semibold tracking-tight"
                     >
                         איך המותג שלכם <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">מרגיש?</span>
                     </motion.h2>
