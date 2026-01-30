@@ -23,10 +23,6 @@ const Hero: React.FC = () => {
 
       {/* 1. Background Texture & Aurora */}
       <SuccessStack />
-      <LiveNotifications />
-
-
-
       {/* Aurora Mesh Gradient - Darker, Moodier */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
         {/* Animated CSS Gradients - High Performance */}
@@ -35,6 +31,8 @@ const Hero: React.FC = () => {
         <div className="absolute top-[20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-blue-900/20 blur-[100px] animate-blob animation-delay-4000 hidden md:block" />
         <div className="absolute inset-0 bg-black/50 z-10" />
       </div>
+
+      <LiveNotifications />
 
       {/* 2. Main Layout - Asymmetrical Editorial */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col justify-center py-24 min-h-[90vh]">
