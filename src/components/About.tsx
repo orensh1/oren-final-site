@@ -7,11 +7,17 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="py-32 relative overflow-hidden bg-black">
-      {/* Parallax Background Text */}
+      {/* Continuous Marquee Text */}
       <motion.div
-        style={{ x }}
-        className="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap opacity-[0.03] select-none pointer-events-none"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{
+          repeat: Infinity,
+          ease: "linear",
+          duration: 30
+        }}
+        className="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap opacity-[0.03] select-none pointer-events-none flex gap-10 w-max"
       >
+        <span className="text-[20vw] font-black uppercase">OREN SHAMIR CREATIVE</span>
         <span className="text-[20vw] font-black uppercase">OREN SHAMIR CREATIVE</span>
       </motion.div>
 
