@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-screen w-full flex flex-col justify-center overflow-hidden bg-[#050505] text-white will-change-transform transform-gpu"
+      className="relative min-h-screen w-full flex flex-col justify-center overflow-hidden text-white will-change-transform transform-gpu"
     >
 
       {/* 1. Background Texture & Aurora */}
