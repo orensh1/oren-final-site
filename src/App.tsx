@@ -5,7 +5,7 @@ import Services from './components/Services';
 import About from './components/About';
 import Contact from './components/Contact';
 import FloatingCTA from './components/FloatingCTA';
-import ChaosSphere from './components/ChaosSphere';
+import SalesFunnel from './components/SalesFunnel';
 
 
 const App: React.FC = () => {
@@ -37,7 +37,7 @@ const App: React.FC = () => {
       <main className="relative z-10">
         <Hero />
         <Services />
-        <ChaosSphere />
+        <SalesFunnel />
         <About />
         <Contact />
       </main>
