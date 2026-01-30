@@ -18,21 +18,59 @@ html.high-contrast {
   filter: contrast(150%);
 }
 
+html.invert-colors {
+  filter: invert(100%);
+}
+
+html.light-mode {
+  background-color: white !important;
+  color: black !important;
+}
+
+html.light-mode * {
+  background-color: white !important;
+  color: black !important;
+  border-color: black !important;
+}
+
 html.large-text {
   font-size: 120%;
 }
 
-/* Accessibility Utilities */
-html.grayscale {
-  filter: grayscale(100%);
+html.readable-font {
+  font-family: Arial, Helvetica, sans-serif !important;
 }
 
-html.high-contrast {
-  filter: contrast(150%);
+html.highlight-links a {
+  background-color: #ffeb3b !important;
+  color: #000 !important;
+  text-decoration: underline !important;
+  padding: 0 4px;
 }
 
-html.large-text {
-  font-size: 120%;
+html.highlight-titles h1,
+html.highlight-titles h2,
+html.highlight-titles h3,
+html.highlight-titles h4,
+html.highlight-titles h5,
+html.highlight-titles h6 {
+  background-color: #00bcd4 !important;
+  color: #000 !important;
+  outline: 2px solid #fff;
+  padding: 4px;
+}
+
+html.stop-animations *,
+html.stop-animations *::before,
+html.stop-animations *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+html.big-cursor,
+html.big-cursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24' fill='black' stroke='white' stroke-width='2'%3E%3Cpath d='M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z'/%3E%3C/svg%3E"), auto !important;
 }
 
 /* Custom Scrollbar */

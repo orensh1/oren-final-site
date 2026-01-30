@@ -20,33 +20,59 @@ const FloatingCTA: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="absolute bottom-full mb-4 left-0 bg-white text-black p-4 rounded-2xl shadow-2xl min-w-[200px] flex flex-col gap-2 origin-bottom-left"
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="absolute bottom-full mb-6 left-0 bg-white/95 backdrop-blur-xl text-black p-6 rounded-3xl shadow-2xl w-[320px] md:w-[400px] flex flex-col gap-4 origin-bottom-left max-h-[80vh] overflow-y-auto border border-white/20 custom-scrollbar"
           >
-            <h4 className="font-bold text-lg mb-2 border-b border-black/10 pb-2">נגישות</h4>
-            <button
-              onClick={() => toggleClass('grayscale')}
-              className="flex items-center gap-3 p-2 hover:bg-black/5 rounded-lg transition-colors text-right"
-            >
-              <span className="w-4 h-4 rounded-full bg-zinc-400" />
-              גווני אפור
-            </button>
-            <button
-              onClick={() => toggleClass('high-contrast')}
-              className="flex items-center gap-3 p-2 hover:bg-black/5 rounded-lg transition-colors text-right"
-            >
-              <span className="w-4 h-4 rounded-full bg-black border border-white" />
-              ניגודיות גבוהה
-            </button>
-            <button
-              onClick={() => toggleClass('large-text')}
-              className="flex items-center gap-3 p-2 hover:bg-black/5 rounded-lg transition-colors text-right"
-            >
-              <span className="text-sm font-bold">A+</span>
-              הגדל טקסט
-            </button>
+            <div className="flex items-center justify-between border-b border-black/5 pb-4">
+              <h4 className="font-bold text-xl flex items-center gap-2">
+                <Accessibility className="w-5 h-5" />
+                כלי נגישות
+              </h4>
+              <button
+                onClick={() => {
+                  document.documentElement.className = '';
+                  setIsOpen(false);
+                }}
+                className="text-xs font-semibold text-red-500 hover:bg-red-50 px-3 py-1.5 rounded-full transition-colors"
+              >
+                איפוס הכל
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {[
+                { id: 'large-text', label: 'הגדל טקסט', icon: 'A+' },
+                { id: 'readable-font', label: 'גופן קריא', icon: 'Aa' },
+                { id: 'grayscale', label: 'גווני אפור', icon: 'BW' },
+                { id: 'high-contrast', label: 'ניגודיות', icon: '◑' },
+                { id: 'invert-colors', label: 'היפוך צבעים', icon: 'In' },
+                { id: 'light-mode', label: 'רקע בהיר', icon: '☀' },
+                { id: 'highlight-links', label: 'הדגשת קישורים', icon: '🔗' },
+                { id: 'highlight-titles', label: 'הדגשת כותרות', icon: 'H' },
+                { id: 'stop-animations', label: 'עצור תנועה', icon: '⏹' },
+                { id: 'big-cursor', label: 'סמן גדול', icon: '↖' },
+              ].map((tool) => (
+                <button
+                  key={tool.id}
+                  onClick={() => toggleClass(tool.id)}
+                  className={`flex flex-col items-center justify-center gap-2 p-3 rounded-xl transition-all border border-black/5 hover:border-blue-500/30 hover:bg-blue-50 ${document.documentElement.classList.contains(tool.id) ? 'bg-blue-100 border-blue-500' : 'bg-white'
+                    }`}
+                >
+                  <span className="text-xl font-bold bg-zinc-100 w-10 h-10 flex items-center justify-center rounded-full mb-1">
+                    {tool.icon}
+                  </span>
+                  <span className="text-xs font-medium text-center leading-tight">{tool.label}</span>
+                </button>
+              ))}
+            </div>
+
+            <div className="text-center pt-2">
+              <button onClick={() => setIsOpen(false)} className="mx-auto w-10 h-10 flex items-center justify-center rounded-full bg-zinc-100 hover:bg-zinc-200 transition-colors">
+                <X size={20} />
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -56,10 +82,10 @@ const FloatingCTA: React.FC = () => {
         title="Accessibility Tools"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-500 transition-colors z-50 relative"
+        className="flex items-center justify-center w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-500 transition-colors z-50 relative"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isOpen ? <X size={20} /> : <Accessibility size={20} />}
+        <Accessibility size={24} />
       </motion.button>
 
       {/* WhatsApp Button */}

@@ -125,21 +125,35 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
+
           <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center text-xs text-zinc-500 order-2 md:order-1">
-              <p>© 2026 Oren Shamir. All rights reserved.</p>
-              <div className="flex gap-4">
-                <a href="#privacy" onClick={(e) => openModal(e, 'privacy')} className="hover:text-zinc-300 transition-colors">מדיניות פרטיות</a>
-                <span className="opacity-30">|</span>
-                <a href="#accessibility" onClick={(e) => openModal(e, 'accessibility')} className="hover:text-zinc-300 transition-colors">הצהרת נגישות</a>
-                <span className="opacity-30">|</span>
-                <a href="#terms" onClick={(e) => openModal(e, 'terms')} className="hover:text-zinc-300 transition-colors">תנאי שימוש</a>
+              <div className="flex items-center gap-6">
+                <button onClick={(e) => openModal(e, 'privacy')} className="hover:text-white transition-colors">מדיניות פרטיות</button>
+                <button onClick={(e) => openModal(e, 'accessibility')} className="hover:text-white transition-colors">הצהרת נגישות</button>
+                <button onClick={(e) => openModal(e, 'terms')} className="hover:text-white transition-colors">תנאי שימוש</button>
               </div>
+              <p>© 2026 Oren Shamir. All rights reserved.</p>
             </div>
-            <div className="flex gap-6 order-1 md:order-2">
-              <a href="#" className="text-zinc-600 hover:text-white transition-colors"><Instagram size={20} /></a>
-              {/* Add more social icons here */}
+
+            <div className="flex items-center gap-6 order-1 md:order-2">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-pink-500 transition-colors">
+                <Instagram size={20} />
+              </a>
+              <a href="mailto:oren@example.com" className="text-zinc-500 hover:text-white transition-colors">
+                <Mail size={20} />
+              </a>
+              <a href="tel:+972526448826" className="text-zinc-500 hover:text-white transition-colors">
+                <Phone size={20} />
+              </a>
             </div>
+          </div>
+
+          {/* Credits Bar */}
+          <div className="mt-8 pt-4 border-t border-white/5 text-center">
+            <p className="text-zinc-600 text-xs dir-rtl" dir="rtl">
+              כל הזכויות שמורות לבונה האתר אורן שמיר 052-644-8826
+            </p>
           </div>
         </div>
       </footer>
@@ -148,3 +162,4 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+```
