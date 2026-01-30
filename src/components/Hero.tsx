@@ -26,35 +26,11 @@ const Hero: React.FC = () => {
 
 
       {/* Aurora Mesh Gradient - Darker, Moodier */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-10" /> {/* Darken base */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-            x: [0, 50, 0],
-            y: [0, -50, 0]
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-10%] right-[-10%] w-[80vw] h-[80vw] rounded-full bg-[#2E1065] blur-[100px] mix-blend-screen opacity-60"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.4, 0.6, 0.4],
-            x: [0, -30, 0]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-10%] left-[10%] w-[60vw] h-[60vw] rounded-full bg-[#BE185D] blur-[120px] mix-blend-screen opacity-50 hidden md:block"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[30%] left-[30%] w-[40vw] h-[40vw] rounded-full bg-violet-600 blur-[80px] opacity-20 mix-blend-screen hidden md:block"
-        />
+      <div className="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
+        {/* Static gradient background - High Performance */}
+        <div className="absolute top-[-20%] right-[-10%] w-[80vw] h-[80vw] rounded-full bg-purple-900/40 blur-[80px]" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[80vw] h-[80vw] rounded-full bg-pink-900/30 blur-[80px]" />
+        <div className="absolute inset-0 bg-black/50 z-10" />
       </div>
 
       {/* 2. Main Layout - Asymmetrical Editorial */}
