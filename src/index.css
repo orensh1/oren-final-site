@@ -10,6 +10,8 @@ html {
 @layer base {
   body {
     @apply bg-[#050505] text-white font-heebo overflow-x-hidden;
+    border: 10px solid red !important;
+    /* DEBUG: CONFIRM DEPLOYMENT */
   }
 }
 
