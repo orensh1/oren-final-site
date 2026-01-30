@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-6 order-1 md:order-2">
-              <a href="https://instagram.com/orenshamir1" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-pink-500 transition-colors">
+              <a href="https://www.instagram.com/orenshamir1/" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-pink-500 transition-colors">
                 <Instagram size={20} />
               </a>
               <a href="mailto:oren@example.com" className="text-zinc-500 hover:text-white transition-colors">
