@@ -121,6 +121,7 @@ const Hero: React.FC = () => {
         <div className="w-full md:w-1/2 flex justify-center md:justify-start z-20 mt-12 md:mt-0 relative perspective-[1000px]">
 
           {/* Orbit System Container */}
+          {/* Orbit System Container */}
           <motion.div
             className="relative w-[380px] h-[380px] md:w-[500px] md:h-[500px] flex items-center justify-center transform-style-3d group"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -129,28 +130,7 @@ const Hero: React.FC = () => {
             whileHover={{ rotateX: 5, rotateY: 5 }}
           >
 
-            {/* Style for CSS Rotation & Pause - Defined here for simplicity */}
-            <style>{`
-               @keyframes orbitRotate {
-                 from { transform: rotate(0deg); }
-                 to { transform: rotate(360deg); }
-               }
-               @keyframes orbitRotateCCW {
-                 from { transform: rotate(360deg); }
-                 to { transform: rotate(0deg); }
-               }
-               .orbit-ring { animation-play-state: running; }
-               .group:hover .orbit-ring { animation-play-state: paused; }
-             `}</style>
-
-            {/* Note: Nodes are now separate from rings to keep them upright (counter-rotation would be needed if nested) 
-                 OR we keep simple: Rotate the RING and the node rotates with it. 
-                 To keep node upright, we need to counter-rotate the node or use absolute positioning on a static container with calculating positions.
-                 
-                 Simpler Approach for v24 per user request "Pause rotation":
-                 We will rotate the RINGS. The nodes are children of the rings. They will rotate.
-                 To keep icons upright, we counter-rotate the ICON inside the node.
-             */}
+            {/* Note: Nodes are now separate from rings to keep them upright */}
 
             {/* Orbit 1 (Outer) - 40s duration */}
             <div

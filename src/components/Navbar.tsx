@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
         `}>
           {/* Logo */}
           <a href="#" className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
-            OREN
+            OREN V27
           </a>
 
           {/* Desktop Links */}

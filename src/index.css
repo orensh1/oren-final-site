@@ -171,3 +171,32 @@ html.big-cursor * {
 .animation-delay-4000 {
   animation-delay: 4s;
 }
+
+/* Orbit Visualizer Animations */
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitRotateCCW {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.orbit-ring {
+  animation-play-state: running;
+}
+
+.group:hover .orbit-ring {
+  animation-play-state: paused;
+}
