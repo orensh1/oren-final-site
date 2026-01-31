@@ -6,7 +6,6 @@ import About from './components/About';
 import Process from './components/Process';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
-import Contact from './components/Contact';
 
 
 const App: React.FC = () => {

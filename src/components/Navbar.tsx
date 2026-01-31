@@ -12,10 +12,19 @@ const Navbar: React.FC = () => {
     setIsScrolled(latest > 50);
   });
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setIsOpen(false);
+    }
+  };
+
   const links = [
-    { name: 'שירותים', href: '#services' },
-    { name: 'קצת עליי', href: '#about' },
-    { name: 'שאלות נפוצות', href: '#faq' },
+    { name: 'שירותים', href: 'services' },
+    { name: 'קצת עליי', href: 'about' },
+    { name: 'שאלות נפוצות', href: 'faq' },
   ];
 
   return (
@@ -41,7 +50,8 @@ const Navbar: React.FC = () => {
             {links.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
+                href={`#${link.href}`}
+                onClick={(e) => handleScroll(e, link.href)}
                 className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group"
               >
                 {link.name}
@@ -52,7 +62,7 @@ const Navbar: React.FC = () => {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <a href="#contact">
+            <a href="#contact" onClick={(e) => handleScroll(e, 'contact')}>
               <Button variant="outline" className="!py-2 !px-4 text-sm flex items-center gap-2">
                 רוצה אתר כזה?
               </Button>
@@ -81,14 +91,14 @@ const Navbar: React.FC = () => {
             {links.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
+                href={`#${link.href}`}
+                onClick={(e) => handleScroll(e, link.href)}
                 className="text-lg font-medium text-white/80 active:text-white"
               >
                 {link.name}
               </a>
             ))}
-            <a href="#contact" onClick={() => setIsOpen(false)}>
+            <a href="#contact" onClick={(e) => handleScroll(e, 'contact')}>
               <Button className="w-full justify-center">רוצה אתר כזה?</Button>
             </a>
           </div>
