@@ -108,16 +108,23 @@ const Hero: React.FC = () => {
             <motion.img
               src={guaranteeCard}
               alt="Oren Shamir Guarantee"
-              animate={{ y: [0, 8, 0] }} // Subtle vertical float
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              animate={{
+                y: [0, -12, 0],           // Float Up/Down
+                rotate: [-10, -5, -10],   // Sway/Tilt change
+                scale: [1, 1.05, 1]       // breathe
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
               style={{
                 position: 'absolute',
-                top: '-20px',    // Overlap top edge
-                right: '-35px',  // Overlap right edge
-                width: '85%',    // Upscaled to 85% (Maximized)
-                transform: 'rotate(-10deg)', // Tilted
-                zIndex: 25,      // On top of overlay
-                filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.4))'
+                top: '60px',     // Moved down to be truly "Right Edge"
+                right: '-45px',  // Aggressive Clipping
+                width: '85%',
+                zIndex: 25,
+                filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
               }}
             />
 
