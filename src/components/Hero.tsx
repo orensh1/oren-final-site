@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
   const opacityText = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const scrollToContact = () => {
-    smoothScrollTo('contact', 2000); // Slow scroll (2 seconds)
+    smoothScrollTo('contact', 1500); // Tuned: 1.5s duration
   };
 
   return (
@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
             className="mb-8 md:mb-12 flex items-center gap-4 self-start md:self-auto"
           >
             <div className="h-[1px] w-8 md:w-12 bg-white/30"></div>
-            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; v13 (CHECK)</span>
+            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; v14 (FIXED)</span>
           </motion.div>
 
           {/* Headlines - Big & Designed */}
@@ -127,8 +127,8 @@ const Hero: React.FC = () => {
               style={{
                 position: 'absolute',
                 top: '20px',     // Kept same
-                right: '-120px', // Revert to standard uncropped offset
-                width: '800%',   // "Enlarge it by a lot" (Massive)
+                right: '-120px', // uncropped offset
+                width: '150%',   // Resized to 150% (Clearly Visible)
                 zIndex: 25,
                 filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
               }}

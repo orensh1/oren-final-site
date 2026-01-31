@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    smoothScrollTo(id, 2000); // Slow scroll (2 seconds)
+    smoothScrollTo(id, 1500); // Tuned: 1.5s duration
     setIsOpen(false);
   };
 
