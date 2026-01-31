@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+// Manual Fix v31 - Green Money
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, CheckCircle2, Bell, MessageCircle, ShoppingBag, Zap, TrendingUp, LayoutTemplate, ShieldCheck, Target, Palette, BarChart3 } from 'lucide-react';
 import SuccessStack from './ui/SuccessStack';
