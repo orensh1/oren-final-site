@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
             className="mb-8 md:mb-12 flex items-center gap-4 self-start md:self-auto"
           >
             <div className="h-[1px] w-8 md:w-12 bg-white/30"></div>
-            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; 2024</span>
+            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; v15 (INSTANT)</span>
           </motion.div>
 
           {/* Headlines - Big & Designed */}
@@ -128,7 +128,8 @@ const Hero: React.FC = () => {
                 position: 'absolute',
                 top: '20px',     // Kept same
                 right: '-120px', // uncropped offset
-                width: '300%',   // Double size (300%)
+                width: '300%',   // Base huge size
+                transform: 'scale(2)', // Forced 2x scaling as requested
                 zIndex: 25,
                 filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
               }}
