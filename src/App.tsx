@@ -6,7 +6,7 @@ import About from './components/About';
 import Process from './components/Process';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
-import FloatingCTA from './components/FloatingCTA';
+import Contact from './components/Contact';
 
 
 const App: React.FC = () => {
@@ -46,8 +46,6 @@ const App: React.FC = () => {
         <FAQ />
         <Contact />
       </main>
-
-      <FloatingCTA />
     </div>
   );
 };

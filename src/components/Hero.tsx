@@ -5,6 +5,7 @@ import SuccessStack from './ui/SuccessStack';
 import LiveNotifications from './LiveNotifications';
 import cardBg from '../assets/card-bg.jpg';
 import guaranteeCard from '../assets/guarantee-card-user-raw.png';
+import orenPortrait from '../assets/oren-portrait-new.jpg';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -143,32 +144,45 @@ const Hero: React.FC = () => {
                 </motion.span>
               </div>
 
-              {/* Bottom Content Area */}
+              {/* Bottom Content Area - Redesigned Footer Style */}
               <div style={{ textAlign: 'right', direction: 'rtl', color: 'white', marginTop: 'auto' }}>
-                <h2 style={{ fontSize: '36px', lineHeight: '1', fontWeight: '800', marginBottom: '10px' }}>
-                  לא עוד סתם<br />דף נחיתה
-                </h2>
-                <p style={{ fontSize: '15px', opacity: '0.9', marginBottom: '20px' }}>
-                  האתר שלכם צריך לעשות עבודה.
+
+                {/* Main Text */}
+                <p style={{ fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2', marginBottom: '20px' }}>
+                  בואו נבנה לכם דף נחיתה שמביא תוצאות
                 </p>
 
-                <button style={{
-                  width: '100%',
-                  background: 'white',
-                  color: 'black',
-                  border: 'none',
-                  padding: '16px',
-                  borderRadius: '50px',
-                  fontWeight: 'bold',
-                  fontSize: '16px',
-                  cursor: 'pointer'
-                }}>
-                  רוצה אתר כזה?
-                </button>
+                {/* Profile & Action Row */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '15px' }}>
-                  <div style={{ width: '36px', height: '36px', background: '#00fa9a', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>👋</div>
-                  <div style={{ fontSize: '13px' }}>דברו איתי בוואטסאפ</div>
+                  {/* Right: Profile Info */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ width: '45px', height: '45px', borderRadius: '50%', overflow: 'hidden', border: '2px solid rgba(255,255,255,0.3)' }}>
+                      <img src={orenPortrait} alt="Oren Shamir" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                      <span style={{ fontSize: '14px', fontWeight: 'bold' }}>אורן שמיר</span>
+                      <span style={{ fontSize: '11px', opacity: '0.7' }}>בניית דפי נחיתה לעסקים</span>
+                    </div>
+                  </div>
+
+                  {/* Left: Arrow Button */}
+                  <button style={{
+                    width: '45px',
+                    height: '45px',
+                    borderRadius: '50%',
+                    background: 'rgba(255,255,255,0.2)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255,255,255,0.3)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    color: 'white'
+                  }}>
+                    <ArrowUpRight size={20} />
+                  </button>
+
                 </div>
               </div>
             </div>
