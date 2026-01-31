@@ -195,25 +195,25 @@ const Hero: React.FC = () => {
                 לידים איכותיים
               </div>
             </div>
+
+
+            {/* Central Core (Static relative to orbits) */}
+            <motion.div
+              className="absolute w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-blue-600/80 to-purple-600/80 backdrop-blur-3xl flex items-center justify-center shadow-[0_0_60px_rgba(50,100,255,0.4)] z-10 border border-white/20 cursor-default"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.1, filter: 'brightness(1.2)' }}
+            >
+              <div className="text-center pointer-events-none">
+                <div className="text-3xl md:text-4xl font-black text-white leading-none">20k+</div>
+                <div className="text-xs md:text-sm text-white/80 font-medium mt-1">לידים חדשים</div>
+              </div>
+            </motion.div>
+
+          </motion.div>
+
         </div>
-
-        {/* Central Core (Static relative to orbits) */}
-        <motion.div
-          className="absolute w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-blue-600/80 to-purple-600/80 backdrop-blur-3xl flex items-center justify-center shadow-[0_0_60px_rgba(50,100,255,0.4)] z-10 border border-white/20 cursor-default"
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          whileHover={{ scale: 1.1, filter: 'brightness(1.2)' }}
-        >
-          <div className="text-center pointer-events-none">
-            <div className="text-3xl md:text-4xl font-black text-white leading-none">20k+</div>
-            <div className="text-xs md:text-sm text-white/80 font-medium mt-1">לידים חדשים</div>
-          </div>
-        </motion.div>
-
-      </motion.div>
-
-    </div>
-  );
+        );
 };
 
-export default Hero;
+        export default Hero;
