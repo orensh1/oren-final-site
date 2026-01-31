@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
             className="mb-8 md:mb-12 flex items-center gap-4 self-start md:self-auto"
           >
             <div className="h-[1px] w-8 md:w-12 bg-white/30"></div>
-            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; 2024</span>
+            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; v12.0 (UPDATED)</span>
           </motion.div>
 
           {/* Headlines - Big & Designed */}
