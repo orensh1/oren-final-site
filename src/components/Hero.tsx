@@ -6,6 +6,7 @@ import LiveNotifications from './LiveNotifications';
 import cardBg from '../assets/card-bg.jpg';
 import guaranteeCard from '../assets/guarantee-card-user-raw.png';
 import orenPortrait from '../assets/oren-portrait-new.jpg';
+import { smoothScrollTo } from '../utils/smoothScroll';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,10 +19,7 @@ const Hero: React.FC = () => {
   const opacityText = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    smoothScrollTo('contact', 2000); // Slow scroll (2 seconds)
   };
 
   return (

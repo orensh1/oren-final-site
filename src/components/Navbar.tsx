@@ -3,6 +3,8 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import Button from './ui/Button';
 import { Menu, X } from 'lucide-react';
 
+import { smoothScrollTo } from '../utils/smoothScroll';
+
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -14,11 +16,8 @@ const Navbar: React.FC = () => {
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setIsOpen(false);
-    }
+    smoothScrollTo(id, 2000); // Slow scroll (2 seconds)
+    setIsOpen(false);
   };
 
   const links = [
