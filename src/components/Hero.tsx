@@ -3,7 +3,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, CheckCircle2, Bell, MessageCircle, ShoppingBag, Zap, TrendingUp, LayoutTemplate, ShieldCheck, Target, Palette, BarChart3 } from 'lucide-react';
 import SuccessStack from './ui/SuccessStack';
-import LiveNotifications from './LiveNotifications';
 import orenPortrait from '../assets/oren-portrait-new.jpg';
 import { smoothScrollTo } from '../utils/smoothScroll';
 
@@ -214,7 +213,10 @@ const Hero: React.FC = () => {
           </motion.div>
 
         </div>
-        );
+
+      </div>
+    </div>
+  );
 };
 
-        export default Hero;
+export default Hero;
