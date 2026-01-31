@@ -120,9 +120,9 @@ const Hero: React.FC = () => {
               }}
               style={{
                 position: 'absolute',
-                top: '20px',     // Moved up
-                right: '-120px', // Moved left
-                width: '240%',   // "Double the size a bit less" (Enormous)
+                top: '20px',     // Kept same
+                right: '-120px', // Kept same (anchored right)
+                width: '480%',   // "Double the size" (Super Massive)
                 zIndex: 25,
                 filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
               }}
