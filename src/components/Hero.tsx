@@ -38,6 +38,29 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-black/40 z-10" />
       </div>
 
+      {/* DESIGNJOY CARD - Moved to Main Wrapper for Screen-Edge Clipping */}
+      <motion.img
+        src={guaranteeCard}
+        alt="Oren Shamir Guarantee"
+        animate={{
+          y: [0, -12, 0],
+          rotate: [-10, -5, -10],
+          scale: [1, 1.05, 1]
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        className="absolute !w-[280px] md:!w-[480px]"
+        style={{
+          top: '5%',       // Designjoy Spec
+          right: '-80px',  // Clipping off right edge
+          zIndex: 0,       // Behind content
+          filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
+        }}
+      />
+
       {/* 2. Main Layout - 2 Columns */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-center justify-between gap-12 pt-[120px] pb-16 md:py-24 min-h-[90vh]">
 
@@ -58,7 +81,7 @@ const Hero: React.FC = () => {
             className="mb-8 md:mb-12 flex items-center gap-4 self-start md:self-auto"
           >
             <div className="h-[1px] w-8 md:w-12 bg-white/30"></div>
-            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; v19 (FINAL SPECS)</span>
+            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; v20 (DESIGNJOY FIX)</span>
           </motion.div>
 
           {/* Headlines - Big & Designed */}
@@ -110,28 +133,6 @@ const Hero: React.FC = () => {
               zIndex: 0
             }}></div>
 
-            {/* GUARANTEE CARD - ABSOLUTE TOP RIGHT CLIPPED */}
-            <motion.img
-              src={guaranteeCard}
-              alt="Oren Shamir Guarantee"
-              animate={{
-                y: [0, -12, 0],           // Float Up/Down
-                rotate: [-10, -5, -10],   // Sway/Tilt change
-                scale: [1, 1.05, 1]       // breathe
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute !w-[280px] md:!w-[420px]"
-              style={{
-                top: '-30px',    // Clipped Top
-                right: '-50px',  // Clipped Right
-                zIndex: 1,       // Behind nav, above bg
-                filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
-              }}
-            />
 
             {/* Content Overlay */}
             <div style={{ position: 'relative', zIndex: 10, height: '100%', padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
