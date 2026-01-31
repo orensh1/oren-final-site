@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2, Bell, MessageCircle, ShoppingBag
 import SuccessStack from './ui/SuccessStack';
 import LiveNotifications from './LiveNotifications';
 import cardBg from '../assets/card-bg.jpg';
-import conversionEngine from '../assets/conversion-engine-3d.png';
+import guaranteeCard from '../assets/guarantee-card.png';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -119,41 +119,23 @@ const Hero: React.FC = () => {
                 </motion.span>
               </div>
 
-              {/* HIGH-END 3D FLOATING CARD (Corrected) */}
-              <div style={{
-                background: 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(15px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                borderRadius: '24px',
-                padding: '20px',
-                width: '180px',
-                marginTop: '10px',
-                animation: 'float 5s ease-in-out infinite',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center'
-              }}>
-                {/* 3D Kinetic Sculpture - Rotating */}
-                <motion.img
-                  src={conversionEngine}
-                  alt="Conversion Engine"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  style={{ width: '100px', height: '100px', objectFit: 'contain', marginBottom: '15px', filter: 'drop-shadow(0 0 15px rgba(100,50,255,0.5))' }}
+              {/* Guarantee Card - Floating */}
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                style={{
+                  marginTop: '20px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5))'
+                }}
+              >
+                <img
+                  src={guaranteeCard}
+                  alt="Oren Shamir Guarantee"
+                  style={{ width: '220px', height: 'auto', transform: 'rotate(-5deg)' }}
                 />
-
-                {/* New Text - Modern Bold White */}
-                <div style={{
-                  color: 'white',
-                  fontWeight: '800',
-                  fontSize: '18px',
-                  letterSpacing: '0.05em',
-                  textShadow: '0 2px 10px rgba(0,0,0,0.5)'
-                }}>
-                  מנוע המרות
-                </div>
-              </div>
+              </motion.div>
 
               {/* Bottom Content Area */}
               <div style={{ textAlign: 'right', direction: 'rtl', color: 'white', marginTop: 'auto' }}>
