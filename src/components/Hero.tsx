@@ -120,9 +120,9 @@ const Hero: React.FC = () => {
               }}
               style={{
                 position: 'absolute',
-                top: '60px',     // Moved down to be truly "Right Edge"
-                right: '-45px',  // Aggressive Clipping
-                width: '85%',
+                top: '80px',     // Adjusted for massive size
+                right: '-160px', // Pushed way out to handle width
+                width: '150%',   // 100% larger (Massive)
                 zIndex: 25,
                 filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
               }}
