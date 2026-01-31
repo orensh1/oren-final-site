@@ -16,12 +16,11 @@ export const smoothScrollTo = (targetId: string, duration: number = 2000) => {
         if (timeElapsed < duration) requestAnimationFrame(animation);
     };
 
-    // EaseInOutQuad
+    // EaseOutCubic - Starts fast, decelerates gently
     const ease = (t: number, b: number, c: number, d: number) => {
-        t /= d / 2;
-        if (t < 1) return (c / 2) * t * t + b;
+        t /= d;
         t--;
-        return (-c / 2) * (t * (t - 2) - 1) + b;
+        return c * (t * t * t + 1) + b;
     };
 
     requestAnimationFrame(animation);
