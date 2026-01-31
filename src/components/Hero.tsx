@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
                 position: 'absolute',
                 top: '20px',     // Kept same
                 right: '-120px', // Revert to standard uncropped offset
-                width: '500%',   // Increased to 500% to compensate for whitespace
+                width: '800%',   // "Enlarge it by a lot" (Massive)
                 zIndex: 25,
                 filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
               }}
