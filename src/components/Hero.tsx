@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
                 position: 'absolute',
                 top: '20px',     // Kept same
                 right: '-120px', // Kept same (anchored right)
-                width: '550%',   // Enlarged from 480% as requested
+                width: '1100%',  // "Double the size" (Colossal)
                 zIndex: 25,
                 filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
               }}
