@@ -1,10 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowUpRight, CheckCircle2, Bell, MessageCircle, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, CheckCircle2, Bell, MessageCircle, ShoppingBag, Zap, TrendingUp, LayoutTemplate, ShieldCheck } from 'lucide-react';
 import SuccessStack from './ui/SuccessStack';
 import LiveNotifications from './LiveNotifications';
-import cardBg from '../assets/card-bg.jpg';
-import guaranteeCard from '../assets/guarantee-card-final-v6.png';
 import orenPortrait from '../assets/oren-portrait-new.jpg';
 import { smoothScrollTo } from '../utils/smoothScroll';
 
@@ -38,28 +36,6 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-black/40 z-10" />
       </div>
 
-      {/* DESIGNJOY CARD - Moved to Main Wrapper for Screen-Edge Clipping */}
-      <motion.img
-        src={guaranteeCard}
-        alt="Oren Shamir Guarantee"
-        animate={{
-          y: [0, -12, 0],
-          rotate: [-10, -5, -10],
-          scale: [1, 1.05, 1]
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute !w-[280px] md:!w-[500px] pointer-events-none"
-        style={{
-          top: '40px',     // Fixed top offset
-          right: '-120px', // Deep clip off right edge
-          zIndex: 0,       // Behind content
-          filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'
-        }}
-      />
 
       {/* 2. Main Layout - 2 Columns */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-center justify-between gap-12 pt-[120px] pb-16 md:py-24 min-h-[90vh]">
@@ -81,7 +57,8 @@ const Hero: React.FC = () => {
             className="mb-8 md:mb-12 flex items-center gap-4 self-start md:self-auto"
           >
             <div className="h-[1px] w-8 md:w-12 bg-white/30"></div>
-            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; v21 (ABSOLUTE FIX)</span>
+            <div className="h-[1px] w-8 md:w-12 bg-white/30"></div>
+            <span className="text-[0.65rem] md:text-xs font-bold tracking-[0.2em] uppercase text-white/50">Oren Shamir &bull; v22 (BENTO GRID)</span>
           </motion.div>
 
           {/* Headlines - Big & Designed */}
@@ -110,90 +87,85 @@ const Hero: React.FC = () => {
 
         </motion.div>
 
-        {/* LEFT COLUMN: Mobile Hero Card */}
-        <div className="w-full md:w-1/2 flex justify-center md:justify-start z-20 mt-12 md:mt-0">
-          <div className="phone-mockup" style={{
-            position: 'relative',
-            width: '380px',
-            height: '600px',
-            borderRadius: '32px',
-            overflow: 'hidden',
-            boxShadow: '0 30px 60px rgba(0,0,0,0.6)',
-            margin: '0 auto 0 0',
-            backgroundColor: '#050505',
-          }}>
-            {/* Background Image - Aggressive Zoom/Crop */}
-            <div style={{
-              position: 'absolute',
-              inset: '-45px',
-              backgroundImage: `url(${cardBg})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: 'brightness(0.9)',
-              zIndex: 0
-            }}></div>
+        {/* LEFT COLUMN: Hebrew Bento Grid */}
+        <div className="w-full md:w-1/2 flex justify-center md:justify-start z-20 mt-12 md:mt-0 relative">
 
+          {/* Grid Container */}
+          <div className="grid grid-cols-2 gap-4 w-full max-w-[500px]" style={{ direction: 'rtl' }}>
 
-            {/* Content Overlay */}
-            <div style={{ position: 'relative', zIndex: 10, height: '100%', padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            {/* Card 1: Main (Full Width) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              whileHover={{ y: -5 }}
+              className="col-span-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 flex flex-col items-start gap-4 relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-purple-500/30 transition-colors" />
 
-              {/* Top Tag - Black & Strong Pulse (Restored) */}
-              <div style={{ alignSelf: 'flex-end', background: '#000', color: '#fff', padding: '10px 24px', borderRadius: '30px', fontSize: '15px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                התחילו היום
-                <motion.span
-                  animate={{ opacity: [1, 0.3, 1], scale: [1, 1.5, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  style={{ color: '#ffd700', fontSize: '12px', display: 'inline-block' }}
-                >
-                  ●
-                </motion.span>
+              <div className="p-3 bg-white/10 rounded-2xl w-fit">
+                <LayoutTemplate className="w-6 h-6 text-purple-400" />
               </div>
-
-              {/* Bottom Content Area - Redesigned Footer Style */}
-              <div style={{ textAlign: 'right', direction: 'rtl', color: 'white', marginTop: 'auto' }}>
-
-                {/* Main Text */}
-                <p style={{ fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2', marginBottom: '20px' }}>
-                  בואו נבנה לכם דף נחיתה שמביא תוצאות
-                </p>
-
-                {/* Profile & Action Row */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-
-                  {/* Right: Profile Info */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{ width: '45px', height: '45px', borderRadius: '50%', overflow: 'hidden', border: '2px solid rgba(255,255,255,0.3)' }}>
-                      <img src={orenPortrait} alt="Oren Shamir" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                      <span style={{ fontSize: '14px', fontWeight: 'bold' }}>אורן שמיר</span>
-                      <span style={{ fontSize: '11px', opacity: '0.7' }}>בניית דפי נחיתה לעסקים</span>
-                    </div>
-                  </div>
-
-                  {/* Left: Arrow Button */}
-                  <button
-                    onClick={scrollToContact}
-                    style={{
-                      width: '45px',
-                      height: '45px',
-                      borderRadius: '50%',
-                      background: 'rgba(255,255,255,0.2)',
-                      backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(255,255,255,0.3)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      cursor: 'pointer',
-                      color: 'white'
-                    }}>
-                    <ArrowUpRight size={20} />
-                  </button>
-
-                </div>
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-1">דפי נחיתה שממירים</h3>
+                <p className="text-sm text-gray-400">עיצוב מודרני שגורם ללקוחות להשאיר פרטים ולהפוך ללידים איכותיים.</p>
               </div>
-            </div>
+            </motion.div>
+
+            {/* Card 2: Stats */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ y: -5 }}
+              className="col-span-1 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group"
+            >
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-500/20 rounded-full blur-2xl -ml-10 -mb-10 group-hover:bg-blue-500/30 transition-colors" />
+              <TrendingUp className="w-8 h-8 text-blue-400 mb-4" />
+              <div>
+                <div className="text-3xl font-black text-white">100%+</div>
+                <div className="text-xs text-gray-400 font-medium">אופטימיזציה<br />של לידים</div>
+              </div>
+            </motion.div>
+
+            {/* Card 3: Speed */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 }}
+              whileHover={{ y: -5 }}
+              className="col-span-1 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group"
+            >
+              <div className="absolute top-0 left-0 w-20 h-20 bg-yellow-500/10 rounded-full blur-2xl -ml-5 -mt-5 group-hover:bg-yellow-500/20 transition-colors" />
+              <div className="flex justify-between items-start w-full">
+                <Zap className="w-8 h-8 text-yellow-400" />
+              </div>
+              <div className="mt-4">
+                <div className="text-lg font-bold text-white leading-tight">טעינה מהירה</div>
+                <div className="text-xs text-gray-400 mt-1">ציון 98+ בגוגל</div>
+              </div>
+            </motion.div>
+
+            {/* Card 4: Trust (Full Width) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              whileHover={{ y: -5 }}
+              className="col-span-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-5 flex items-center gap-4 relative overflow-hidden group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
+              <div className="p-2 bg-green-500/20 rounded-full">
+                <ShieldCheck className="w-5 h-5 text-green-400" />
+              </div>
+              <div className="flex-1">
+                <div className="font-bold text-white">מותאם אישית לכל עסק</div>
+                <div className="text-xs text-gray-400">פתרונות מדויקים לצרכים שלך</div>
+              </div>
+            </motion.div>
+
           </div>
+
         </div>
 
       </div>
